@@ -7,7 +7,7 @@ const app = express();
 const db = require('./db');
 
 const authController = require('./controllers/authController');
-const securedController = require('./securedController');
+const securedController = require('./controllers/securedController');
 
 app.use(cors()); 
 app.use(express.json());
