@@ -1,13 +1,10 @@
 const express = require('express');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const multer = require('multer');
-
-const upload = multer();
-
-const User = require('../models/User');
-
 const router = express.Router();
+const User = require('./User');
+const multer = require('multer');
+const upload = multer();
 
 router.post('/signup', upload.none(), async (req, res) => {
   const { username, password } = req.body;
@@ -17,17 +14,16 @@ router.post('/signup', upload.none(), async (req, res) => {
   }
 
   const hashedPassword = await bcrypt.hash(password, 10);
-  const user = new User({ username, password: hashedPassword });
-  await user.save();
+  const user = await User.create({ username, password: hashedPassword });
   res.sendStatus(201);
 });
 
 router.post('/login', upload.none(), async (req, res) => {
-  const user = await User.findOne({ username: req.body.username });
+  const user = await User.findOne({ where: { username: req.body.username } });
   if (!user || !await bcrypt.compare(req.body.password, user.password)) {
     return res.sendStatus(401);
   }
-  const token = jwt.sign({ _id: user._id }, process.env.SECRET_KEY);
+  const token = jwt.sign({ id: user.id }, process.env.SECRET_KEY);
   res.send({ token });
 });
 
