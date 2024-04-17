@@ -2,10 +2,10 @@ const express = require('express');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const multer = require('multer');
+const upload = multer();
 
 const User = require('./User');
 
-const upload = multer();
 
 const router = express.Router();
 
