@@ -5,6 +5,7 @@ const User = require('./User');
 const multer = require('multer');
 const upload = multer();
 
+const router = express.Router();
 router.post('/signup', upload.none(), async (req, res) => {
   const { username, password } = req.body;
 
