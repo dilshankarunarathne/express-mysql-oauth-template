@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
+const { Sequelize } = require('sequelize');
 
-mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true, useUnifiedTopology: true });
+const sequelize = new Sequelize(process.env.DB_MYSQL);
 
-module.exports = mongoose;
+module.exports = sequelize;
