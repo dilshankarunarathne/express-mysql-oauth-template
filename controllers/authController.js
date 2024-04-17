@@ -1,9 +1,9 @@
 const express = require('express');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const router = express.Router();
-const User = require('./User');
 const multer = require('multer');
+const User = require('./User');
+const router = express.Router();
 const upload = multer();
 
 router.post('/signup', upload.none(), async (req, res) => {
