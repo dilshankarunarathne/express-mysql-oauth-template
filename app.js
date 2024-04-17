@@ -7,6 +7,10 @@ const app = express();
 
 const db = require('./db');
 
+db.sync()
+  .then(() => console.log('Tables have been created'))
+  .catch(error => console.error('Unable to create tables', error));
+
 const authController = require('./controllers/authController');
 const securedController = require('./controllers/securedController');
 
