@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 const multer = require('multer');
 const upload = multer();
 
-const User = require('./User');
+const User = require('../models/User');
 
 const router = express.Router();
 
