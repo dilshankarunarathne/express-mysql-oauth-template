@@ -1,6 +1,6 @@
-# Express-Mongo OAuth2 Template
+# Express-MySQL OAuth2 Template
 
-This is a template for an Express.js REST API application with MongoDB. It uses OAuth2 for authentication and authorization. 
+This is a template for an Express.js REST API application with MySQL. It uses OAuth2 for authentication and authorization. 
 
 [![Version](https://img.shields.io/badge/version-1.0-brightgreen.svg)](https://pypi.org/project/ad-topic-recommender/)
 [![License](https://img.shields.io/badge/license-CC%20BY--NC--SA%204.0-blue.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
